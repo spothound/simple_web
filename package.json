@@ -1,0 +1,15 @@
+{
+  "name": "web_app",
+  "version": "1.0.0",
+  "description": "Simple web_application that connects with an MQ service and shows the status of this connection in the index page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francisco Navarro @spothound",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "amqplib": "0.8.0"
+  }
+}

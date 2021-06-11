@@ -1,28 +1,39 @@
-# Requirements
+# Description
 
-- NodeJS 8+
-- Docker
-- Minikube
+This is a sample nodejs website that attempts to connect with an MQ service and displays its status.
 
-# Instructions
+It has the address and port of the MQ service in the `config.js` configuration file.
 
+# Usage
 
-## Build docker image
-
-You can build your own Docker image, as an example we will be using my
-repository: `spothound/web_app`.
-
+## Run locally
 ```
-docker build -t <your_user>/web_app
-docker push <your_user>/web_app
+npm install
+node server.js
 ```
 
-## Deploy to K8s with minikube
+## Run on Docker instance
 
-Notice: to use a custom image you must change the reference in the `deployment.yaml` file
+You need to forward the 80 port using `-p` flag in order to allow acces to the application using the machine IP.
 
 ```
-cd kubernetes
+docker build -t simple_web .
+docker run -p 80:80 simple_web
+```
+
+## Run using KUbernetes
+
+### Requirements
+- Active K8s cluster
+- Kubectl
+- For custom images you will need to push your custom Docker image to a Docker repository and modify the configuration file to apply that change.
+
+You need a K8s cluster active. You can create it using tools like Minikube.
+
+```
 kubectl apply -f deployment.yaml
 minikube service nodejs-service
 ```
+
+
+

@@ -1,6 +1,0 @@
-.terraform*
-terraform.tfstate.backup
-terraform.tfstate
-aws_access_key
-aws_secret_key
-ansible.pub
