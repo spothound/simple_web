@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run spothound/web_app
+docker run -d -p 8000:8000 spothound/web_app
