@@ -1,7 +1,6 @@
 FROM node:14
-WORKDIR /usr/src/app
-COPY web_app/package*.json ./
+COPY . /usr/src/app
+WORKDIR /usr/src/app/web_app
 RUN npm install
-COPY . .
-EXPOSE 8000
+EXPOSE 80
 CMD [ "node", "server.js" ]
