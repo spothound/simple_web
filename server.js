@@ -8,7 +8,7 @@ const PORT = process.env.port || 80
 
 
 router.get('/',function(req,res){
-  amqp.connect(`amqp://${config.mq_ip}:${config.mq_port}`, function (error0, connection) {
+  amqp.connect(`amqp://${config.mq_ip}:${config.mq_port}`, {timeout: 2000}, function (error0, connection) {
       if (error0) {
           res.sendFile(path.join(__dirname+'/disconnected.html'));
       }
